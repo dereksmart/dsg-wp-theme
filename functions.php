@@ -78,8 +78,7 @@ function dsg_theme_preference_script() {
 		(function () {
 			try {
 				var stored = localStorage.getItem('dsg-theme');
-				var preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-				document.documentElement.setAttribute('data-theme', stored || preferred);
+				document.documentElement.setAttribute('data-theme', stored === 'dark' ? 'dark' : 'light');
 			} catch (e) {
 				document.documentElement.setAttribute('data-theme', 'light');
 			}
